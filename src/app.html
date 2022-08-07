@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
+		<meta name="description" content="Made with svelteKit, daisyUI, vite, netlify">
+		<meta name="viewport" content="width=device-width" />
+		<meta property="og:url" content="https://royalepatch.arong.bar/">
+		<meta property="og:title" content="royalepatch">
+		<meta property="og:type" content="webapp">
+		<meta property="og:image" content="%sveltekit.assets%/favicon.png">
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Titan+One&display=swap" rel="stylesheet">
+		<style>
+			@font-face {
+				font-family: 'Pretendard';
+				src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+				font-weight: 400;
+				font-style: normal;
+			}
+		
+			@font-face {
+				font-family: 'Pretendard';
+				src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+				font-weight: 700;
+				font-style: normal;
+			}
+		
+			html {
+				height: 100%;
+				font-size: 10px;
+			}
+		
+			body {
+				min-height: 100%;
+				font-family: 'Roboto', 'Pretendard', sans-serif;
+				font-weight: normal;
+				font-size: 1.4rem;
+				line-height: 1.5;
+				color: #2d1a2e;
+				background: #f2f1ed;
+			}
+		</style>
+		%sveltekit.head%
+	</head>
+	<body>
+		%sveltekit.body%
+	</body>
+</html>

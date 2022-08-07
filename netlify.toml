@@ -1,0 +1,18 @@
+# sample netlify.toml
+# 제품 모드
+[build]
+  command = "npm run build"
+  functions = "functions" # netlify dev는 이 디렉토리를 사용하여 기능을 스캐폴드하고 제공합니다.
+  publish = "build" # 프로젝트 빌드 결과의 디렉토리를 지정합니다.
+
+# note: each of these fields are OPTIONAL
+# 개발 모드
+[dev]
+  command = "npm run dev" # Command to start your dev server
+  targetPort = 5173 # The port for your application server, framework or site generator
+  port = 8888 # The port that the netlify dev will be accessible on
+  publish = "src" # The path to your static content folder
+  jwtSecret = "secret" # The secret used to verify tokens for JWT based redirects
+  jwtRolePath = "app_metadata.authorization.roles" # Object path we should look for role values for JWT based redirects
+  autoLaunch = true # a Boolean value that determines if Netlify Dev launches the local server address in your browser
+  envFiles = [".env.development", ".env"] # The env files to use, ordered by priority (left - highest, right - lowest)
