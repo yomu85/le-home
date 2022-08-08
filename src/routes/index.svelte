@@ -88,9 +88,9 @@
         <thead>
           <tr>
             <th>날짜</th>
-            <th>LE잔량</th>
-            <th>PVU수확량</th>
-            <th>PVU가격($)</th>
+            <th>LE 잔량</th>
+            <th>PVU 수확량</th>
+            <th>PVU 가격($)</th>
           </tr>
         </thead> 
         <tbody>

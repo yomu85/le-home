@@ -1,7 +1,6 @@
 const axios = require('axios')
 const { NOTION_API_KEY } = process.env
 const NOTION_DATABASE_ID = '32d43c95310245e6a074a6e5b353581d'
-// const NOTION_DATABASE_ID = 'f28eea78af7b4f56a5e0ce65ff85fe9b'
 
 exports.handler = async function(event, context) {
   const options = {
