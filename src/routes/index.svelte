@@ -69,7 +69,7 @@
 <main id="main">
   <Header />
 
-  <div class="btn_area">
+  <div class={flag ? 'btn_area hide' : 'btn_area'}>
     <button type="button"
       class={ $loading ? 'btn btn-block loading' : 'btn btn-block'}
       on:click={dataOn}
@@ -127,6 +127,9 @@
     padding: 1rem;
     display: flex;
     justify-content: center;
+    &:global(.hide) {
+      display: none;
+    }
     .btn {
       font-size: 1.3rem;
     }
