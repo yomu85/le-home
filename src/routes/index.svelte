@@ -73,7 +73,7 @@
     <button type="button"
       class={ $loading ? 'btn btn-block loading' : 'btn btn-block'}
       on:click={dataOn}
-    >차트 가져오기</button>
+    >LE 잔량 차트 보기</button>
   </div>
   <canvas id="myChart" class={flag ? 'show' : ''}></canvas>
   {#if $loading}
