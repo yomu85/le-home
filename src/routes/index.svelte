@@ -110,6 +110,7 @@
 
 <style lang="scss">
   .table_wrap {
+    padding: 1rem;
     overflow-x: auto;
     .table-zebra {
       thead th {
