@@ -4,9 +4,9 @@
 
 <script>
   import Header from '$lib/Header.svelte'
+  import Loader from '$lib/Loader.svelte';
   import { leVal, loading } from '$lib/stores'
   import Chart from 'chart.js/auto';
-  import Loader from '$lib/Loader.svelte';
 
   let flag = false;
 
