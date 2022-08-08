@@ -6,6 +6,7 @@
   import Header from '$lib/Header.svelte'
   import { leVal, loading } from '$lib/stores'
   import Chart from 'chart.js/auto';
+  import Loader from '$lib/Loader.svelte';
 
   let flag = false;
 
@@ -75,28 +76,36 @@
     >차트 가져오기</button>
   </div>
   <canvas id="myChart" class={flag ? 'show' : ''}></canvas>
-  <div class="table_wrap">
-    <table class="table table-zebra w-full">
-      <thead>
-        <tr>
-          <th>날짜</th>
-          <th>LE잔량</th>
-          <th>PVU수확량</th>
-          <th>PVU가격($)</th>
-        </tr>
-      </thead> 
-      <tbody>
-        {#each $leVal as leValInfo}
-        <tr>
-          <td>{leValInfo.properties.date.date.start}</td>
-          <td>{leValInfo.properties.LE.number}</td>
-          <td>{leValInfo.properties.getPVU.number}</td>
-          <td>{leValInfo.properties.PVUprice.number}</td>
-        </tr>
-        {/each}
-      </tbody>
-    </table>
-  </div>
+  {#if $loading}
+    <Loader 
+      scale='.7'
+      absolute={false}
+      fixed={false}
+    />
+  {:else}
+    <div class="table_wrap">
+      <table class="table table-zebra w-full">
+        <thead>
+          <tr>
+            <th>날짜</th>
+            <th>LE잔량</th>
+            <th>PVU수확량</th>
+            <th>PVU가격($)</th>
+          </tr>
+        </thead> 
+        <tbody>
+          {#each $leVal as leValInfo}
+          <tr>
+            <td>{leValInfo.properties.date.date.start}</td>
+            <td>{leValInfo.properties.LE.number}</td>
+            <td>{leValInfo.properties.getPVU.number}</td>
+            <td>{leValInfo.properties.PVUprice.number}</td>
+          </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
+  {/if}
 </main>
 
 <style lang="scss">
