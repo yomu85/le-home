@@ -16,7 +16,7 @@
     let arrdate = []
     let arrLe = []
 
-    for(let i=0; i < $leVal.length; i++) {
+    for(let i = 0; i < $leVal.length; i++) {
       arrdate.push($leVal[i].properties.date.date.start)
       arrLe.push($leVal[i].properties.LE.number)
     }

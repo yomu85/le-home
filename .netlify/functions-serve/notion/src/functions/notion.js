@@ -12345,7 +12345,12 @@ exports.handler = async function(event, context) {
       "Notion-Version": "2022-02-22",
       "Content-Type": "application/json"
     },
-    data: { page_size: 200 }
+    data: { page_size: 200, sorts: [
+      {
+        "property": "date",
+        "direction": "ascending"
+      }
+    ] }
   };
   try {
     const res = await axios.request(options);
