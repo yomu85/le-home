@@ -66,16 +66,18 @@
   }
 </script>
 
-<main id="main">
-  <Header />
+<Header />
 
+<main id="main">
   <div class={flag ? 'btn_area hide' : 'btn_area'}>
     <button type="button"
       class={ $loading ? 'btn btn-block loading' : 'btn btn-block'}
       on:click={dataOn}
     >LE 잔량 차트 보기</button>
   </div>
+  
   <canvas id="myChart" class={flag ? 'show' : ''}></canvas>
+
   {#if $loading}
     <Loader 
       scale='.7'
@@ -109,8 +111,11 @@
 </main>
 
 <style lang="scss">
-  .table_wrap {
+  #main {
     padding: 1rem;
+  }
+  .table_wrap {
+    margin-top: 1rem;
     overflow-x: auto;
     .table-zebra {
       thead th {
@@ -124,7 +129,6 @@
     }
   }
   .btn_area {
-    padding: 1rem;
     display: flex;
     justify-content: center;
     &:global(.hide) {
