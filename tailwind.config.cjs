@@ -7,17 +7,18 @@ module.exports = {
   // daisyUI config (optional)
   daisyui: {
 		themes: [
+      //"garden"
 			{
 				mytheme: {
-          "primary": "#9db69c",
-          "secondary": "#d9d4c1",
-          "accent": "#fcd34d",
-          "neutral": "#5e8562",
-          "base-100": "#f2f1ed",
-          "info": "#e7e2ce",
-          "success": "#1A6B38",
-          "warning": "#A76106",
-          "error": "#EC7476",
+          "primary": "#5C7F67",
+          "secondary": "#ECF4E7",
+          "accent": "#FAE5E5",
+          "neutral": "#5D5656",
+          "base-100": "#E9E7E7",
+          "info": "#3ABFF8",
+          "success": "#36D399",
+          "warning": "#FBBD23",
+          "error": "#F87272",
         },
 			},
 		]

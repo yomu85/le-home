@@ -4,41 +4,24 @@
 
 <script>
   import Header from '$lib/Header.svelte'
-  import { lePvu } from '$lib/stores'
+  import { leVal } from '$lib/stores'
   import Chart from 'chart.js/auto';
-  import { onMount } from 'svelte'
 
-  onMount(()=> {
+  let flag = false;
+
+  function dataOn() {
     const ctx = document.getElementById('myChart').getContext('2d');
-    let obj = {}
 
-    function notionAPI(val) {
-      let arr = []
+    let arrdate = []
+    let arrLe = []
 
-      if(val == 'le') {
-        for(let i=0; i < $lePvu.length; i++) {
-          arr.push($lePvu[i].properties.LE.number)
-        }
-      }
-      // else if(val == 'date') {
-      //   for(let i=0; i < $lePvu.length; i++) {
-      //     arr.push($lePvu[i].properties.date.date.start)
-      //   }
-      // }
-      
-      obj.le = arr
-      console.log(obj.le)
-
-      return obj.le
+    for(let i=0; i < $leVal.length; i++) {
+      arrdate.push($leVal[i].properties.date.date.start)
+      arrLe.push($leVal[i].properties.LE.number)
     }
-
     
-      //obj.date = notionAPI('le')
-      //['2022-08-06', '2022-08-07']
-
-    
-    const data = {
-      labels: notionAPI('le'),
+    let data = {
+      labels: arrdate,
       datasets: [
         {
           label: 'LE 잔량',
@@ -59,11 +42,11 @@
           pointHoverBorderWidth: 1,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: notionAPI('le'),
-        },
+          data: arrLe,
+        }
       ],
     }
-    const config = {
+    let config = {
         type: 'line',
         data: data,
         options: {
@@ -74,70 +57,41 @@
             }
         }
     }
-    new Chart(ctx, config);
-  })
+
+    if(!flag){
+      new Chart(ctx, config);
+    }
+    flag = true
+  }
 </script>
 
 <main id="main">
   <Header />
 
-  <div class="tabs tabs-boxed">
-    <a href="/" class="tab-active">HOME</a> 
-    <a href="/" class="tab">2차 정보</a> 
-    <a href="/" class="tab">3차 정보</a>
+  <button type="button" class="btn" on:click={dataOn}>GET DATA</button>
+  <canvas id="myChart" :class={flag ? 'show' : ''}></canvas>
+  <div class="table_wrap">
+    <table class="table table-zebra w-full">
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>LE잔량</th>
+          <th>PVU수확량</th>
+          <th>PVU가격($)</th>
+        </tr>
+      </thead> 
+      <tbody>
+        {#each $leVal as leValInfo}
+        <tr>
+          <td>{leValInfo.properties.date.date.start}</td>
+          <td>{leValInfo.properties.LE.number}</td>
+          <td>{leValInfo.properties.getPVU.number}</td>
+          <td>{leValInfo.properties.PVUprice.number}</td>
+        </tr>
+        {/each}
+      </tbody>
+    </table>
   </div>
-    <canvas id="myChart"></canvas>
-    <div class="table_wrap">
-      <table class="table table-zebra w-full">
-        <thead>
-          <tr>
-            <th>날짜</th>
-            <th>LE잔량</th>
-            <th>PVU수확량</th>
-            <th>PVU가격($)</th>
-          </tr>
-        </thead> 
-        <tbody>
-          {#each $lePvu as lePvuInfo}
-          <tr>
-            <td>{lePvuInfo.properties.date.date.start}</td>
-            <td>{lePvuInfo.properties.LE.number}</td>
-            <td>{lePvuInfo.properties.getPVU.number}</td>
-            <td>{lePvuInfo.properties.PVUprice.number}</td>
-          </tr>
-          {/each}
-        </tbody>
-        <!-- <thead>
-          <tr>
-            <th>구분</th>
-            <th>날짜</th>
-            <th>케릭터</th>
-            <th>업다운</th>
-            <th class="text_left">패치내용</th> 
-          </tr>
-        </thead> 
-        <tbody>
-          {#each $patchList as patchInfo, index}
-          <tr>
-            <td>{index+1}</td>
-            <td>{patchInfo.properties.date.date.start}</td>
-            <td>
-              <img src="/character/{patchInfo.properties.cards.select.name}.png" 
-                class="img_character" alt={patchInfo.properties.cards.select.name}>
-            </td>
-            <td>{patchInfo.properties.updown.select.name}</td> 
-            <td>
-              <div class="text_left">
-                {#each patchInfo.properties.patches.title as patch}
-                  <p>{patch.plain_text}</p>
-                {/each}
-              </div>
-            </td>
-          </tr>
-          {/each}
-        </tbody> -->
-      </table>
-    </div>
 </main>
 
 <style lang="scss">
@@ -160,5 +114,11 @@
 
   :global(.text_left) {
     text-align: left;
+  }
+  #myChart {
+    display: none;
+    &.show {
+      display:block
+    }
   }
 </style>
