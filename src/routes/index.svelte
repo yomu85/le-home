@@ -1,5 +1,5 @@
 <svelte:head>
-  <title>홈 | RoyalePatch</title>
+  <title>홈 | LeForYou</title>
 </svelte:head>
 
 <script>
