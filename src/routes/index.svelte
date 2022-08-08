@@ -68,7 +68,9 @@
 <main id="main">
   <Header />
 
-  <button type="button" class="btn" on:click={dataOn}>GET DATA</button>
+  <div class="btn_area">
+    <button type="button" class="btn btn-block" on:click={dataOn}>차트 가져오기</button>
+  </div>
   <canvas id="myChart" :class={flag ? 'show' : ''}></canvas>
   <div class="table_wrap">
     <table class="table table-zebra w-full">
@@ -101,9 +103,6 @@
       thead th {
         text-align: center;
         font-size: 1.2rem;
-        &.text_left {
-          text-align: left;
-        }
       }
       tbody td {
         text-align: center;
@@ -115,9 +114,17 @@
   :global(.text_left) {
     text-align: left;
   }
+  .btn_area {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    .btn {
+      font-size: 1.3rem;
+    }
+  }
   #myChart {
     display: none;
-    &.show {
+    &:global(.show) {
       display:block
     }
   }
