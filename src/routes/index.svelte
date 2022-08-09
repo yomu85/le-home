@@ -164,6 +164,7 @@
 
   #myChart {
     display: none;
+    max-height: 40rem;
     &:global(.show) {
       display:block;
     }
