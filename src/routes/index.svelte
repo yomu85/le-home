@@ -114,8 +114,8 @@
           <tr>
             <th>날짜</th>
             <th>LE(k)</th>
-            <th>PVU 수확량</th>
-            <th>PVU 가격($)</th>
+            <th><a href="https://bscscan.com/token/tokenholderchart/0x31471e0791fcdbe82fbf4c44943255e923f1b794" target="_blank">PVU</a></th>
+            <th><a href="https://poocoin.app/tokens/0x31471e0791fcdbe82fbf4c44943255e923f1b794" target="_blank">PVU 가격($)</a></th>
           </tr>
         </thead> 
         <tbody>
