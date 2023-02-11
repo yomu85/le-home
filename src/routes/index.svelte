@@ -1,7 +1,3 @@
-<svelte:head>
-  <title>홈 | LeForYou</title>
-</svelte:head>
-
 <script>
   import Header from '$lib/Header.svelte'
   import Loader from '$lib/Loader.svelte';
@@ -14,20 +10,22 @@
     const ctx = document.getElementById('myChart').getContext('2d');
 
     let arrdate = []
-    let arrLe = []
-    let arrPvu = []
+    let arrBitcoin = []
+    let arrGold = []
+    let arrSp500 = []
 
     for(let i = 0; i < $leVal.length; i++) {
-      arrdate.push($leVal[i].properties.date.date.start)
-      arrLe.push($leVal[i].properties.LE_k.number)
-      arrPvu.push($leVal[i].properties.getPVU.number)
+      arrdate.push($leVal[i].properties.title.title[0].plain_text)
+      arrBitcoin.push($leVal[i].properties.Bitcoin.number)
+      arrGold.push($leVal[i].properties.Gold.number)
+      arrSp500.push($leVal[i].properties.Sp500.number)
     }
     
     let data = {
       labels: arrdate,
       datasets: [
         {
-          label: 'LE(k)',
+          label: 'Bitcoin',
           fill: true,
           lineTension: 0.3,
           backgroundColor: 'rgba(248, 114, 114, .1)',
@@ -45,10 +43,10 @@
           pointHoverBorderWidth: 1,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: arrLe,
+          data: arrBitcoin,
         },
         {
-          label: 'PVU',
+          label: 'Gold',
           fill: true,
           lineTension: 0.3,
           backgroundColor: 'rgba(236, 244, 231, .2)',
@@ -66,7 +64,28 @@
           pointHoverBorderWidth: 1,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: arrPvu,
+          data: arrGold,
+        },
+        {
+          label: 'Sp500',
+          fill: true,
+          lineTension: 0.3,
+          backgroundColor: 'rgba(236, 244, 231, .2)',
+          borderColor: '#617AFF',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgb(205, 130,1 58)',
+          pointBackgroundColor: 'rgb(255, 255, 255)',
+          pointBorderWidth: 4,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: 'rgb(0, 0, 0)',
+          pointHoverBorderColor: 'rgba(220, 220, 220,1)',
+          pointHoverBorderWidth: 1,
+          pointRadius: 1,
+          pointHitRadius: 10,
+          data: arrGold,
         }
       ],
     }
@@ -88,6 +107,10 @@
     flag = true
   }
 </script>
+
+<svelte:head>
+  <title>casebitcoin</title>
+</svelte:head>
 
 <Header />
 
@@ -112,19 +135,19 @@
       <table class="table table-zebra w-full">
         <thead>
           <tr>
-            <th>날짜</th>
-            <th>LE(k)</th>
-            <th><a href="https://bscscan.com/token/tokenholderchart/0x31471e0791fcdbe82fbf4c44943255e923f1b794" target="_blank">PVU</a></th>
-            <th><a href="https://poocoin.app/tokens/0x31471e0791fcdbe82fbf4c44943255e923f1b794" target="_blank">PVU 가격($)</a></th>
+            <th>Year</th>
+            <th>Bitcoin</th>
+            <th>Gold</th>
+            <th>S&amp;P 500</th>
           </tr>
         </thead> 
         <tbody>
           {#each $leVal as leValInfo}
           <tr>
-            <td>{leValInfo.properties.date.date.start}</td>
-            <td>{leValInfo.properties.LE_k.number}</td>
-            <td>{leValInfo.properties.getPVU.number}</td>
-            <td>{leValInfo.properties.PVUprice.number}</td>
+            <td>{leValInfo.properties.title.title[0].plain_text}</td>
+            <td>{leValInfo.properties.Bitcoin.number}</td>
+            <td>{leValInfo.properties.Gold.number}</td>
+            <td>{leValInfo.properties.SP500.number}</td>
           </tr>
           {/each}
         </tbody>
