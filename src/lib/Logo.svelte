@@ -29,7 +29,7 @@
 
 <h1 class="ml6">
   <button type="button" on:click={goTop} class="text-primary ml15">
-    <span class="word">LeForYou</span>
+    <span class="word">CASEBITCOIN</span>
   </button>
 </h1>
 
