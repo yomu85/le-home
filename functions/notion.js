@@ -14,7 +14,7 @@ exports.handler = async function(event, context) {
     },
     data: {page_size: 200, sorts: [
         {
-            "property": "date",
+            "property": "title",
             "direction": "ascending"
         }
     ]}

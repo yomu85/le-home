@@ -119,7 +119,7 @@
     <button type="button"
       class={ $loading ? 'btn btn-block loading' : 'btn btn-block'}
       on:click={dataOn}
-    >LE/PVU 차트 보기</button>
+    >Bitcoin/Gold/S&amp;P500 상관 관계 차트 보기</button>
   </div>
   
   <canvas id="myChart" class={flag ? 'show' : ''}></canvas>
