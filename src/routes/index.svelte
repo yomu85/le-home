@@ -18,7 +18,7 @@
       arrdate.push($leVal[i].properties.title.title[0].plain_text)
       arrBitcoin.push($leVal[i].properties.Bitcoin.number)
       arrGold.push($leVal[i].properties.Gold.number)
-      arrSP500.push($leVal[i].properties.SP500.number)
+      arrSP500.push($leVal[i].properties.Sp.number)
     }
     
     let data = {
@@ -138,7 +138,7 @@
             <th>Year</th>
             <th>Bitcoin</th>
             <th>Gold</th>
-            <th>S&amp;P 500</th>
+            <th>S&amp;P500</th>
           </tr>
         </thead> 
         <tbody>
@@ -147,7 +147,7 @@
             <td>{leValInfo.properties.title.title[0].plain_text}%</td>
             <td>{leValInfo.properties.Bitcoin.number}%</td>
             <td>{leValInfo.properties.Gold.number}%</td>
-            <td>{leValInfo.properties.SP500.number}%</td>
+            <td>{leValInfo.properties.Sp.number}%</td>
           </tr>
           {/each}
         </tbody>
