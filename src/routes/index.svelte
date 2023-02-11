@@ -144,10 +144,10 @@
         <tbody>
           {#each $leVal as leValInfo}
           <tr>
-            <td>{leValInfo.properties.title.title[0].plain_text}</td>
-            <td>{leValInfo.properties.Bitcoin.number}</td>
-            <td>{leValInfo.properties.Gold.number}</td>
-            <td>{leValInfo.properties.SP500.number}</td>
+            <td>{leValInfo.properties.title.title[0].plain_text}%</td>
+            <td>{leValInfo.properties.Bitcoin.number}%</td>
+            <td>{leValInfo.properties.Gold.number}%</td>
+            <td>{leValInfo.properties.SP500.number}%</td>
           </tr>
           {/each}
         </tbody>
