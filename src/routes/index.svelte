@@ -12,13 +12,13 @@
     let arrdate = []
     let arrBitcoin = []
     let arrGold = []
-    let arrSp500 = []
+    let arrSP500 = []
 
     for(let i = 0; i < $leVal.length; i++) {
       arrdate.push($leVal[i].properties.title.title[0].plain_text)
       arrBitcoin.push($leVal[i].properties.Bitcoin.number)
       arrGold.push($leVal[i].properties.Gold.number)
-      arrSp500.push($leVal[i].properties.Sp500.number)
+      arrSP500.push($leVal[i].properties.SP500.number)
     }
     
     let data = {
@@ -67,7 +67,7 @@
           data: arrGold,
         },
         {
-          label: 'Sp500',
+          label: 'SP500',
           fill: true,
           lineTension: 0.3,
           backgroundColor: 'rgba(236, 244, 231, .2)',
@@ -85,7 +85,7 @@
           pointHoverBorderWidth: 1,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: arrSp500,
+          data: arrSP500,
         }
       ],
     }
