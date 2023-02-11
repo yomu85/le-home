@@ -85,7 +85,7 @@
           pointHoverBorderWidth: 1,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: arrGold,
+          data: arrSp500,
         }
       ],
     }
